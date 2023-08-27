@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Protos/Wholesaler.cs \
+obj\Debug\net6.0\Protos/WholesalerGrpc.cs: Protos/wholesaler.proto

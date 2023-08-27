@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+service wholesaler {
+	rpc Reserve (DomicilioWholesaler) returns (ReserveResult);
+	rpc Activate (DomicilioWholesaler) returns (ActivateResult);
+	rpc Deactivate (DomicilioWholesaler) returns (ActivateResult);
+	rpc Terminate (DomicilioWholesaler) returns (ActivateResult);
+}
+
+message DomicilioWholesaler {
+	int32 numAd = 1;
+	string modalidade = 2;
+	string operadora = 3;
+	string user = 4;
+}
+
+message ReserveResult {
+	bool success = 1;
+}
+
+message	ActivateResult {
+	bool success = 1;
+	string time = 2;
+}

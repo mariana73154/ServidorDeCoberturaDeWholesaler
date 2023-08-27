@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+service getInfo {
+	rpc GetInfoCobertura(TypeInfo) returns (InfoCobertura);
+	rpc GetInfoDomicilio(TypeInfo) returns (InfoDomicilio);
+	rpc GetInfoUser(TypeInfo) returns (InfoUser);
+	rpc GetInfoOperadora(TypeInfo) returns (InfoOperadora);
+	rpc RemoveCobertura(Cobertura) returns (Result);
+	rpc AddCobertura(Cobertura) returns (Result);
+	rpc RemoveUser(User) returns (Result);
+	rpc	AddUser(User) returns (Result);
+}
+
+message TypeInfo {
+	string tipo = 1;
+}
+
+message InfoCobertura {
+	repeated Cobertura coberturas = 1;
+}
+
+message InfoDomicilio {
+	repeated Domicilio domicilios = 1;
+}
+
+message InfoUser {
+	repeated User users = 1;
+}
+
+message	InfoOperadora {
+	repeated Operadora operadoras = 1;
+}
+
+message Cobertura {
+	string operadora = 1;
+	int32 numAdmin = 2;
+	string nOwner = 3;
+	string estado = 4;
+	string modalidade = 5;
+}
+
+message Domicilio {
+	int32 numAdmin = 1;
+	string municipio = 2;
+	string localidade = 3;
+	string rua = 4;
+	int32 numPorta = 5;
+	string codPostal = 6;
+}
+
+message User {
+	string username = 1;
+	string operadora = 2;
+	string password = 3;
+}
+
+message Operadora {
+	string operadora = 1;
+}
+
+message Result {
+	bool result = 1;
+}

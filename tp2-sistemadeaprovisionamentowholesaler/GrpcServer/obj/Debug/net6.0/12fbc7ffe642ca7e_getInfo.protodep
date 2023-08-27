@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Protos/GetInfo.cs \
+obj\Debug\net6.0\Protos/GetInfoGrpc.cs: Protos/getInfo.proto
